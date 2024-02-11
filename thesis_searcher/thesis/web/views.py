@@ -1,6 +1,5 @@
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
-def web(request):
-  template = loader.get_template('myfirst.html')
-  return HttpResponse(template.render())
+def index(request):
+    my_dict = {"insert_me": "I am from views.py"}
+    return render(request,'myfirst.html',context=my_dict)
