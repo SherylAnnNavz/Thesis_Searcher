@@ -1,9 +1,7 @@
-# thesis_searcher/thesis/web/urls.py
-
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.myfirst, name='myfirst'),
+    path('', views.my_view, name='myfirst'),  # Change 'myfirst' to match the name in your URL pattern
     # Add other URL patterns as needed
 ]
