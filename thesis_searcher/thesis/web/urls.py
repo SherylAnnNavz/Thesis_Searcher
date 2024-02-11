@@ -1,8 +1,9 @@
-# Correcting the import statement in urls.py
+# thesis/web/urls.py
+
 from django.urls import path
-from . import views  # Assuming views.py is in the same directory as urls.py
+from . import views  # Import views from the web app
 
 urlpatterns = [
-    path('', views.post_list, name='post_list'),  # Assuming you want to display the post list view on the homepage
+    path('', views.post_list, name='post_list'),  # Assuming post_list is the view function in views.py
     # Add other URL patterns as needed
 ]
