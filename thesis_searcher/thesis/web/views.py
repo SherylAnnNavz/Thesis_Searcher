@@ -1,5 +1,7 @@
+# views.py
 from django.shortcuts import render
+from .models import Post
 
-def index(request):
-    my_dict = {"insert_me": "I am from views.py"}
-    return render(request,'myfirst.html',context=my_dict)
+def post_list(request):
+    posts = Post.objects.filter(status=1).order_by('-publication_date')
+    return render(request, 'post_list.html', {'posts': posts})
