@@ -1,10 +1,9 @@
 from django.contrib import admin
-from .models import Post
+from .models import Thesis
 
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'status','publication_date')
-    list_filter = ("status",)
+class ThesisAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'publication_date')
+    list_filter = ('publication_date',)
     search_fields = ['title', 'abstract']
-    prepopulated_fields = {'slug': ('title',)}
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Thesis, ThesisAdmin)
