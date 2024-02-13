@@ -8,8 +8,8 @@
     <h1>Thesis Detail</h1>
     <p>Title: {{ thesis.title }}</p>
     <p>Author: {{ thesis.author }}</p>
+    <p>Publication Date: {{ thesis.publication_date }}</p>
     <p>Abstract: {{ thesis.abstract }}</p>
-    <p>Year: {{ thesis.year }}</p>
-    <a href="{% url 'post_list' %}">Back to Thesis List</a>
+    <a href="{% url 'thesis_list' %}">Back to Thesis List</a>  <!-- Updated URL pattern name to 'thesis_list' -->
 </body>
 </html>
