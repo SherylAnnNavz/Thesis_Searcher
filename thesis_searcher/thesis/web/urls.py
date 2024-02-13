@@ -1,7 +1,7 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include  
 
 urlpatterns = [
-    path('', views.my_view, name='myfirst'),  # Change 'myfirst' to match the name in your URL pattern
-    # Add other URL patterns as needed
+    path('admin/', admin.site.urls),
+    path('thesis/', include('web.urls')),  
 ]

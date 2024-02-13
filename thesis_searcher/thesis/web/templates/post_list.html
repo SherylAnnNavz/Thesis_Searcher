@@ -1,16 +1,15 @@
-<!-- thesis_searcher/thesis/web/templates/post_list.html -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Thesis Post List</title>
+    <meta charset="UTF-8">
+    <title>Thesis List</title>
 </head>
 <body>
-    <h1>Thesis Posts</h1>
+    <h1>Thesis List</h1>
     <ul>
-    {% for post in posts %}
-        <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>
-    {% endfor %}
+        {% for thesis in theses %}
+            <li><a href="{% url 'post_detail' thesis.id %}">{{ thesis.title }}</a></li>
+        {% endfor %}
     </ul>
 </body>
 </html>

@@ -1,12 +1,15 @@
-<!-- thesis_searcher/thesis/web/templates/post_detail.html -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{{ post.title }}</title>
+    <meta charset="UTF-8">
+    <title>Thesis Detail</title>
 </head>
 <body>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.abstract }}</p>
+    <h1>Thesis Detail</h1>
+    <p>Title: {{ thesis.title }}</p>
+    <p>Author: {{ thesis.author }}</p>
+    <p>Abstract: {{ thesis.abstract }}</p>
+    <p>Year: {{ thesis.year }}</p>
+    <a href="{% url 'post_list' %}">Back to Thesis List</a>
 </body>
 </html>
