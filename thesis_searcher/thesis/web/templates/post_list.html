@@ -3,12 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Thesis List</title>
+    <style>
+        /* Remove bullet points from list items */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        /* Style the list items */
+        li {
+            margin-bottom: 10px; /* Add spacing between list items */
+        }
+        /* Style the links */
+        a {
+            text-decoration: none;
+            color: #333; /* Change link color */
+        }
+    </style>
 </head>
 <body>
     <h1>Thesis List</h1>
     <ul>
         {% for thesis in theses %}
-            <li><a href="{% url 'post_detail' thesis.id %}">{{ thesis.title }}</a></li>
+            <li>
+                <a href="{% url 'post_detail' thesis.id %}">
+                    {{ thesis.title }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
 </body>
