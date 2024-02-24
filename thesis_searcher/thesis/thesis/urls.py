@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include  
 from web.views import thesis_list, thesis_detail  # Import your views
 
 urlpatterns = [

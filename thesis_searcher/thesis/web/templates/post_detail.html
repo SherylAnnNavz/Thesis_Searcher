@@ -26,6 +26,19 @@
             color: #00abff;
             text-decoration: none; 
         }
+
+        /* Pagination styles */
+        .pagination {
+            margin-top: 20px; /* Add margin above pagination controls */
+        }
+
+        .pagination .step-links {
+            float: right;
+        }
+
+        .pagination .step-links a {
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -35,5 +48,22 @@
     <p><strong>Publication Date:</strong> {{ thesis.publication_date }}</p>
     <p><strong>Abstract:</strong><br>{{ thesis.abstract|linebreaksbr }}</p>
     <a href="{% url 'thesis_list' %}">Back to Thesis List</a>  <!-- Updated URL pattern name to 'thesis_list' -->
+
+    <!-- Pagination controls (optional) -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
 </body>
 </html>
