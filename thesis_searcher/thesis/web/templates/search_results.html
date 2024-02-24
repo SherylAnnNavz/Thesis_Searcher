@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Thesis List</title>
+    <title>Search Results</title>
     <style>
+        /* Your CSS styles here */
         body { 
             margin:0;
             padding:0;
@@ -125,22 +126,11 @@
             white-space: nowrap;
             text-overflow: ellipsis;
         }
-
-        /* Search form positioning */
-        #search-form {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
     </style>
 </head>
 <body>
-    <h1>Thesis List</h1>
-    <form id="search-form" method="GET" action="{% url 'thesis_search' %}">
-        <label for="search">Search:</label>
-        <input type="text" name="q" id="search">
-        <input type="submit" value="Search">
-    </form>
+    <h1>Search Results</h1>
+    <p>Showing results for "{{ query }}":</p>
     {% for thesis in theses %}
         <div class="thesis-container">
             <h2 class="thesis-title">
@@ -150,13 +140,12 @@
                 Published: {{ thesis.publication_date }} by {{ thesis.author }}
             </p>
             <div class="thesis-preview">
-                {% if thesis.abstract|length > 200 %}
-                    {{ thesis.abstract|slice:":200" }}...
-                {% else %}
-                    {{ thesis.abstract }}
-                {% endif %}
+                {{ thesis.abstract }}
             </div>
         </div>
+    {% empty %}
+        <p>No results found.</p>
     {% endfor %}
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
 </body>
 </html>
