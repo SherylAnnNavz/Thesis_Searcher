@@ -5,109 +5,139 @@
     <title>Thesis List</title>
     <style>
         body { 
-    margin:0;
-    padding:0;
-    font-family:helvetica, sans-serif; 
-}
+            margin:0;
+            padding:0;
+            font-family:helvetica, sans-serif; 
+        }
 
-a { 
-    color:#00abff;
-    text-decoration:none; 
-}
+        a { 
+            color:#00abff;
+            text-decoration:none; 
+        }
 
-h1 { 
-    font-weight:normal;
-    border-bottom:1px solid #bbb;
-    padding:0 0 10px 0;
-}
+        h1 { 
+            font-weight:normal;
+            border-bottom:1px solid #bbb;
+            padding:0 0 10px 0;
+        }
 
-h2 {
-    font-weight:normal;
-    margin:30px 0 0;
-}
+        h2 {
+            font-weight:normal;
+            margin:30px 0 0;
+        }
 
-#content { 
-    float:left;
-    width:60%;
-    padding:0 0 0 30px; 
-}
+        #content { 
+            float:left;
+            width:60%;
+            padding:0 0 0 30px; 
+        }
 
-#sidebar { 
-    float:right;
-    width:30%;
-    padding:10px;
-    background:#efefef; 
-    height:100%;
-}
+        #sidebar { 
+            float:right;
+            width:30%;
+            padding:10px;
+            background:#efefef; 
+            height:100%;
+        }
 
-p.date { 
-    color:#ccc;
-    font-family: georgia, serif;
-    font-size: 12px;
-    font-style: italic; 
-}
+        p.date { 
+            color:#ccc;
+            font-family: georgia, serif;
+            font-size: 12px;
+            font-style: italic; 
+        }
 
-/* pagination */
-.pagination { 
-    margin:40px 0; 
-    font-weight:bold;
-}
+        /* pagination */
+        .pagination { 
+            margin:40px 0; 
+            font-weight:bold;
+        }
 
-/* forms */
-label { 
-    float:left;
-    clear:both;
-    color:#333;
-    margin-bottom:4px; 
-}
-input, textarea { 
-    clear:both;
-    float:left;
-    margin:0 0 10px;
-    background:#ededed;
-    border:0;
-    padding:6px 10px;
-    font-size:12px;
-}
-input[type=submit] {
-    font-weight:bold;
-    background:#00abff;
-    color:#fff;
-    padding:10px 20px;
-    font-size:14px;
-    text-transform:uppercase; 
-}
-.errorlist { 
-    color:#cc0033;
-    float:left;
-    clear:both;
-    padding-left:10px; 
-}
+        /* forms */
+        label { 
+            float:left;
+            clear:both;
+            color:#333;
+            margin-bottom:4px; 
+        }
+        input, textarea { 
+            clear:both;
+            float:left;
+            margin:0 0 10px;
+            background:#ededed;
+            border:0;
+            padding:6px 10px;
+            font-size:12px;
+        }
+        input[type=submit] {
+            font-weight:bold;
+            background:#00abff;
+            color:#fff;
+            padding:10px 20px;
+            font-size:14px;
+            text-transform:uppercase; 
+        }
+        .errorlist { 
+            color:#cc0033;
+            float:left;
+            clear:both;
+            padding-left:10px; 
+        }
 
-/* comments */
-.comment {
-    padding:10px;
-}
-.comment:nth-child(even) {
-    background:#efefef;
-}
-.comment .info {
-    font-weight:bold;
-    font-size:12px;
-    color:#666;
-}
+        /* comments */
+        .comment {
+            padding:10px;
+        }
+        .comment:nth-child(even) {
+            background:#efefef;
+        }
+        .comment .info {
+            font-weight:bold;
+            font-size:12px;
+            color:#666;
+        }
+
+        /* Additional styles */
+        .thesis-container {
+            background-color: #fdfdfd;
+            padding: 20px;
+            border: 1px solid #bbb;
+            margin-bottom: 20px;
+        }
+
+        .thesis-title {
+            font-size: 24px;
+            color: #00abff;
+            margin-bottom: 10px;
+        }
+
+        .thesis-meta {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .thesis-preview {
+            font-size: 16px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
     <h1>Thesis List</h1>
-    <ul>
-        {% for thesis in theses %}
-            <li>
-                <a href="{% url 'post_detail' thesis.id %}">
-                    {{ thesis.title }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+    {% for thesis in theses %}
+        <div class="thesis-container">
+            <h2 class="thesis-title">
+                <a href="{% url 'post_detail' thesis.id %}">{{ thesis.title }}</a>
+            </h2>
+            <p class="thesis-meta">
+                Published: {{ thesis.publication_date }} by {{ thesis.author }}
+            </p>
+            <div class="thesis-preview">
+                {{ thesis.abstract }}
+            </div>
+        </div>
+    {% endfor %}
 </body>
 </html>
