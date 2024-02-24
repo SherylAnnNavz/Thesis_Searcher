@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Thesis Detail</title>
+    <style>
+        body { 
+            margin: 20px; /* Add margin to create spacing around the content */
+            padding: 0; /* Reset default padding */
+            font-family: helvetica, sans-serif; 
+            line-height: 1.6; /* Increase line height for better readability */
+        }
+
+        h1 { 
+            font-weight: normal;
+            border-bottom: 1px solid #bbb;
+            padding-bottom: 10px;
+            margin-bottom: 20px; /* Add margin below the heading */
+        }
+
+        p {
+            margin-bottom: 10px; /* Add margin below each paragraph */
+        }
+
+        a {
+            color: #00abff;
+            text-decoration: none; 
+        }
+    </style>
 </head>
 <body>
     <h1>Thesis Detail</h1>
-    <p>Title: {{ thesis.title }}</p>
-    <p>Author: {{ thesis.author }}</p>
-    <p>Publication Date: {{ thesis.publication_date }}</p>
-    <p>Abstract: {{ thesis.abstract }}</p>
+    <p><strong>Title:</strong> {{ thesis.title }}</p>
+    <p><strong>Author:</strong> {{ thesis.author }}</p>
+    <p><strong>Publication Date:</strong> {{ thesis.publication_date }}</p>
+    <p><strong>Abstract:</strong><br>{{ thesis.abstract|linebreaksbr }}</p>
     <a href="{% url 'thesis_list' %}">Back to Thesis List</a>  <!-- Updated URL pattern name to 'thesis_list' -->
 </body>
 </html>

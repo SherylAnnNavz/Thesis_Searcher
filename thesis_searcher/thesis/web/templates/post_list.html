@@ -121,6 +121,9 @@
         .thesis-preview {
             font-size: 16px;
             color: #333;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
@@ -135,7 +138,11 @@
                 Published: {{ thesis.publication_date }} by {{ thesis.author }}
             </p>
             <div class="thesis-preview">
-                {{ thesis.abstract }}
+                {% if thesis.abstract|length > 200 %}
+                    {{ thesis.abstract|slice:":200" }}...
+                {% else %}
+                    {{ thesis.abstract }}
+                {% endif %}
             </div>
         </div>
     {% endfor %}
