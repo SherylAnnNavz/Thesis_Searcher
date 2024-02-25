@@ -131,6 +131,7 @@
 <body>
     <h1>Search Results</h1>
     <p>Showing results for "{{ query }}":</p>
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p> <!-- Link to go back to the homepage -->
     {% for thesis in theses %}
         <div class="thesis-container">
             <h2 class="thesis-title">
