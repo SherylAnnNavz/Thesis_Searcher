@@ -16,7 +16,7 @@ Installation
 To install and run the Thesis Searcher locally, follow these steps:
 
 Clone the repository:
-git clone <repository-url>
+git clone (repository-url)
 
 Navigate to the project directory:
 cd Thesis_Searcher
