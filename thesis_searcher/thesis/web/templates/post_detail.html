@@ -5,21 +5,21 @@
     <title>Thesis Detail</title>
     <style>
         body { 
-            margin: 20px; /* Add margin to create spacing around the content */
-            padding: 0; /* Reset default padding */
+            margin: 20px; 
+            padding: 0; 
             font-family: helvetica, sans-serif; 
-            line-height: 1.6; /* Increase line height for better readability */
+            line-height: 1.6; 
         }
 
         h1 { 
             font-weight: normal;
             border-bottom: 1px solid #bbb;
             padding-bottom: 10px;
-            margin-bottom: 20px; /* Add margin below the heading */
+            margin-bottom: 20px; 
         }
 
         p {
-            margin-bottom: 10px; /* Add margin below each paragraph */
+            margin-bottom: 10px; 
         }
 
         a {
@@ -27,9 +27,8 @@
             text-decoration: none; 
         }
 
-        /* Pagination styles */
         .pagination {
-            margin-top: 20px; /* Add margin above pagination controls */
+            margin-top: 20px;
         }
 
         .pagination .step-links {
@@ -40,17 +39,14 @@
             margin-left: 10px;
         }
 
-        /* Comment form styles */
         .comment-form {
             margin-top: 20px;
         }
 
-        /* Remove the label for form fields */
         .comment-form label {
             display: none;
         }
 
-        /* Style the submit button */
         .comment-form button {
             background-color: #00abff;
             color: white;
@@ -67,9 +63,8 @@
     <p><strong>Author:</strong> {{ thesis.author }}</p>
     <p><strong>Publication Date:</strong> {{ thesis.publication_date }}</p>
     <p><strong>Abstract:</strong><br>{{ thesis.abstract|linebreaksbr }}</p>
-    <a href="{% url 'thesis_list' %}">Back to Thesis List</a>  <!-- Updated URL pattern name to 'thesis_list' -->
+    <a href="{% url 'thesis_list' %}">Back to Thesis List</a>  
 
-    <!-- Comment form -->
     <div class="comment-form">
         <h2>Add a Comment</h2>
         <form action="{% url 'post_detail' thesis.id %}" method="post">
@@ -79,7 +74,6 @@
         </form>
     </div>
 
-    <!-- Comments section -->
     <div class="comments">
         <h2>Comments</h2>
         {% if thesis.comments.all %}
@@ -93,7 +87,6 @@
         {% endif %}
     </div>
 
-    <!-- Pagination controls (optional) -->
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}

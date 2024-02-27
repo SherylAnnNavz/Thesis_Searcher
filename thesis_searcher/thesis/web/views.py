@@ -1,8 +1,7 @@
-# views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Thesis, Comment
-from .forms import CommentForm  # Make sure this path is correct
+from .forms import CommentForm
 
 def thesis_list(request):
     theses = Thesis.objects.all()

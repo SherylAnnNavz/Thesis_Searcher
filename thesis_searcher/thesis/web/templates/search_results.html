@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <style>
-        /* Your CSS styles here */
         body { 
             margin:0;
             padding:0;
@@ -48,13 +47,11 @@
             font-style: italic; 
         }
 
-        /* pagination */
         .pagination { 
             margin:40px 0; 
             font-weight:bold;
         }
 
-        /* forms */
         label { 
             float:left;
             clear:both;
@@ -131,7 +128,7 @@
 <body>
     <h1>Search Results</h1>
     <p>Showing results for "{{ query }}":</p>
-    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p> <!-- Link to go back to the homepage -->
+    <p><a href="{% url 'homepage' %}">Back to Homepage</a></p>
     {% for thesis in theses %}
         <div class="thesis-container">
             <h2 class="thesis-title">
