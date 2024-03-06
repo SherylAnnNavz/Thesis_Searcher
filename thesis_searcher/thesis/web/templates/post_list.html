@@ -8,6 +8,7 @@
             margin:0;
             padding:0;
             font-family:helvetica, sans-serif; 
+            position: relative;
         }
 
         a { 
@@ -26,72 +27,28 @@
             margin:30px 0 0;
         }
 
-        #content { 
-            float:left;
-            width:60%;
-            padding:0 0 0 30px; 
+        #search-form {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
         }
 
-        #sidebar { 
-            float:right;
-            width:30%;
-            padding:10px;
-            background:#efefef; 
-            height:100%;
+        #search-form input[type="text"] {
+            margin-right: 5px;
+            width: 200px;
         }
 
-        p.date { 
-            color:#ccc;
-            font-family: georgia, serif;
-            font-size: 12px;
-            font-style: italic; 
-        }
-
-        .pagination { 
-            margin:40px 0; 
-            font-weight:bold;
-        }
-
-        label { 
-            float:left;
-            clear:both;
-            color:#333;
-            margin-bottom:4px; 
-        }
-        input, textarea { 
-            clear:both;
-            float:left;
-            margin:0 0 10px;
-            background:#ededed;
-            border:0;
-            padding:6px 10px;
-            font-size:12px;
-        }
         input[type=submit] {
             font-weight:bold;
             background:#00abff;
             color:#fff;
-            padding:10px 20px;
-            font-size:14px;
-            text-transform:uppercase; 
-        }
-        .errorlist { 
-            color:#cc0033;
-            float:left;
-            clear:both;
-            padding-left:10px; 
-        }
-
-        .comment {
-            padding:10px;
-        }
-        .comment:nth-child(even) {
-            background:#efefef;
-        }
-        .comment .info {
-            font-weight:bold;
+            padding:6px 10px; 
             font-size:12px;
-            color:#666;
+            text-transform:uppercase; 
+            border: none; 
+            cursor: pointer; 
         }
 
         .thesis-container {
@@ -121,19 +78,12 @@
             white-space: nowrap;
             text-overflow: ellipsis;
         }
-
-        #search-form {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
     </style>
 </head>
 <body>
     <h1>Thesis List</h1>
     <form id="search-form" method="GET" action="{% url 'thesis_search' %}">
-        <label for="search">Search:</label>
-        <input type="text" name="q" id="search">
+        <input type="text" name="q" id="search" placeholder="Search...">
         <input type="submit" value="Search">
     </form>
     {% for thesis in theses %}
