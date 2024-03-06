@@ -1,7 +1,7 @@
-
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Thesis, Comment
 from .forms import CommentForm
+from taggit.models import Tag
 
 def thesis_list(request):
     theses = Thesis.objects.all()
@@ -31,3 +31,8 @@ def thesis_search(request):
         theses = Thesis.objects.all()
 
     return render(request, 'search_results.html', {'theses': theses, 'query': query})
+
+def tagged_thesis(request, slug):
+    tag = Tag.objects.get(slug=slug)
+    theses = Thesis.objects.filter(tags__slug=slug)
+    return render(request, 'tagged_theses.html', {'tag': tag, 'theses': theses})

@@ -101,6 +101,11 @@
                     {{ thesis.abstract }}
                 {% endif %}
             </div>
+            <p class="tags">Tags:
+                {% for tag in thesis.tags.all %}
+                    <a href="{% url 'tagged_thesis' tag.slug %}">#{{ tag.name }}</a>
+                {% endfor %}
+            </p>
         </div>
     {% endfor %}
 </body>

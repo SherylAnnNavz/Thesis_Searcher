@@ -63,6 +63,11 @@
     <p><strong>Author:</strong> {{ thesis.author }}</p>
     <p><strong>Publication Date:</strong> {{ thesis.publication_date }}</p>
     <p><strong>Abstract:</strong><br>{{ thesis.abstract|linebreaksbr }}</p>
+    <p><strong>Tags:</strong>
+        {% for tag in thesis.tags.all %}
+            <a href="{% url 'tagged_thesis' tag.slug %}">#{{ tag.name }}</a>
+        {% endfor %}
+    </p>
     <a href="{% url 'thesis_list' %}">Back to Thesis List</a>  
 
     <div class="comment-form">
